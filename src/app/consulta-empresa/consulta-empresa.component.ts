@@ -28,15 +28,20 @@ export class ConsultaEmpresaComponent implements OnInit {
 
   onClick(){
     if(this.formConsulta.valid){
-      this.webController.getEmpresa(this.formConsulta.get('numDocumento')!.value).subscribe(data => {
-        if(data.code == "0"){
-          this.empresa = data.empresas[0];
-          this.mostrarInfo = true;
-          this.formConsulta.reset();
-        } else {
-          alert('Company not found');
+      this.webController.getEmpresa(this.formConsulta.get('numDocumento')!.value).subscribe({
+        next:  data => {
+          if(data.code == "0"){
+            this.empresa = data.empresas[0];
+            this.mostrarInfo = true;
+            this.formConsulta.reset();
+          } else {
+            alert('Company not found');
+          }
+        },
+        error: error => {
+          alert('There is no connection with our servers, try later!');
         }
-      });
+    });
     } else {
       alert('Please fill all the required fields');
     }
