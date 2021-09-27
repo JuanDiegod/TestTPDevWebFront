@@ -1,0 +1,23 @@
+<div class="consultaEmpresaF">
+    <h1>Search for a Company</h1>
+    <form [formGroup]="formConsulta" (ngSubmit)="onClick()">
+        <br>
+        <label>Identification Number</label>
+        <input type="text" formControlName="numDocumento" placeholder="Identification Number">
+        <div *ngIf="formConsulta.get('numDocumento')!.invalid && 
+            formConsulta.get('numDocumento')!.errors && 
+            (formConsulta.get('numDocumento')!.dirty || formConsulta.get('numDocumento')!.touched)">
+            <small class="text-danger"
+                *ngIf="formConsulta.get('numDocumento')!.hasError('required')">
+                This field is required.
+            </small>
+            <small class="text-danger"
+                *ngIf="formConsulta.get('numDocumento')!.hasError('pattern')">
+                Field only allows numbers.
+            </small>
+        </div>       
+        <button type="submit" class="btn-send">Search</button>
+    </form>
+    <br>
+</div>
+<empresa [emp]="this.empresa" *ngIf="this.mostrarInfo"></empresa>

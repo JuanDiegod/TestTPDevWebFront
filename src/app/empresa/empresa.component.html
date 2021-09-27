@@ -1,0 +1,98 @@
+<div class="formContainer">
+    <h1>Company Data</h1>
+    <form [formGroup]="formEmpresa" (ngSubmit)="onClick()">
+        <br>
+        <label>Identification Type</label>
+        <select formControlName="tipoDocumento" name="tipoDocumento">
+            <option [value]="item.value" *ngFor="let item of documentos">{{item.name}}</option>
+        </select>
+        <label>Identification Number</label>
+        <input type="text" formControlName="numDocumento" placeholder="Identification Number">
+        <div *ngIf="formEmpresa.get('numDocumento')!.invalid && 
+            formEmpresa.get('numDocumento')!.errors && 
+            (formEmpresa.get('numDocumento')!.dirty || formEmpresa.get('numDocumento')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('numDocumento')!.hasError('required')">
+                This field is required.
+            </small>
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('numDocumento')!.hasError('pattern')">
+                Field only allows numbers.
+            </small>
+        </div>
+        <br>
+        <label>Company Name</label>
+        <input type="text" formControlName="razonSocial" placeholder="Company Name">
+        <div *ngIf="formEmpresa.get('razonSocial')!.invalid && 
+            formEmpresa.get('razonSocial')!.errors && 
+            (formEmpresa.get('razonSocial')!.dirty || formEmpresa.get('razonSocial')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('razonSocial')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
+        <br>
+        <label>First Name</label>
+        <input type="text" formControlName="primerNombre" placeholder="First Name">
+        <div *ngIf="formEmpresa.get('primerNombre')!.invalid && 
+            formEmpresa.get('primerNombre')!.errors && 
+            (formEmpresa.get('primerNombre')!.dirty || formEmpresa.get('primerNombre')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('primerNombre')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
+        <br>
+        <label>Second Name</label>
+        <input type="text" formControlName="segundoNombre" placeholder="Second Name">
+        <div *ngIf="formEmpresa.get('segundoNombre')!.invalid && 
+            formEmpresa.get('segundoNombre')!.errors && 
+            (formEmpresa.get('segundoNombre')!.dirty || formEmpresa.get('segundoNombre')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('segundoNombre')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
+        <br>
+        <label>First Last Name</label>
+        <input type="text" formControlName="primerApellido" placeholder="First Last Name">
+        <div *ngIf="formEmpresa.get('primerApellido')!.invalid && 
+            formEmpresa.get('primerApellido')!.errors && 
+            (formEmpresa.get('primerApellido')!.dirty || formEmpresa.get('primerApellido')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('primerApellido')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
+        <br>
+        <label>Second Last Name</label>
+        <input type="text" formControlName="segundoApellido" placeholder="Second Last Name">
+        <div *ngIf="formEmpresa.get('segundoApellido')!.invalid && 
+            formEmpresa.get('segundoApellido')!.errors && 
+            (formEmpresa.get('segundoApellido')!.dirty || formEmpresa.get('segundoApellido')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('segundoApellido')!.hasError('required')">
+                This field is required.
+            </small>
+        </div>
+        <br>
+        <label>E-mail</label>
+        <input type="email" formControlName="correo" placeholder="E-mail">
+        <div *ngIf="formEmpresa.get('correo')!.invalid && 
+            formEmpresa.get('correo')!.errors && 
+            (formEmpresa.get('correo')!.dirty || formEmpresa.get('correo')!.touched)">
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('correo')!.hasError('required')">
+                This field is required.
+            </small>
+            <small class="text-danger"
+                *ngIf="formEmpresa.get('correo')!.hasError('email')">
+                This field only allows e-mails.
+            </small>
+        </div>
+        <br>
+        <input type="checkbox" formControlName="autCelular"> I authorize the sending of messages to the cell phone provided. <br>
+        <input type="checkbox" formControlName="autCorreo"> I authorize messages to be sent to the following e-mail address.<br>
+        <button type="submit" class="btn-send">Update</button>
+    </form>
+</div>

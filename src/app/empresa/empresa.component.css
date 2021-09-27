@@ -1,0 +1,56 @@
+.formContainer {
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 500px;
+    padding: 16px;
+    margin: 10px auto;
+    background: #f7f7f7;    
+}
+
+.formContainer h1 {
+    background: #1a5edc;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px -16px -16px;
+}
+
+
+.formContainer input[type="text"],
+.formContainer input[type="email"],
+.formContainer select {
+    transition: all 0, 30x ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+
+.formContainer .btn-send {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #1a5edc;
+    border-bottom: 2px solid #4c7dd7;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.formContainer .btn-send:hover {
+    background: #4c7dd7;
+}
+
+.formContainer .text-danger{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 2%;
+}
